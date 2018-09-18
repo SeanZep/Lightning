@@ -1,9 +1,9 @@
-int startx = 0;
-int starty = 150;
-int endx = 0;
-int endy = 150;
+int startx = 300;
+int starty = 250;
+int endx = 300;
+int endy = 250;
 void setup(){
-  	size(300,300);
+  	size(600,500);
 }
 void draw(){
 	
@@ -12,22 +12,25 @@ void mousePressed(){
 	lightning();
 }
 void lightning(){
-	while(endx<300){
+	while(endx<600){
 		int x = (int)(Math.random()*9);
 		int y = (int)(Math.random()*18-9);
 		startx = endx;
 		starty = endy;
 		endx = endx+x;
 		endy = endy+y;
+		randomColor();
 		line(startx, starty, endx, endy);
 	}
-	startx = 0;
-	starty = 150;
-	endx = 0;
-	endy = 150;
+	startx = 300;
+	starty = 250;
+	endx = 300;
+	endy = 250;
 }
-int randomColor(){
-	int g = 0;
-	return g;
+void randomColor(){
+	int r = (int)(Math.random()*256);
+	int g = (int)(Math.random()*256);
+	int b = (int)(Math.random()*256);
+	stroke(r, g, b);
 }
 
