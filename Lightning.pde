@@ -1,7 +1,7 @@
 int startx = 0;
-int starty;
+int starty = 10;
 int endx = 0;
-int endy;
+int endy = 10;
 void setup(){
   	size(300,250);
 }
@@ -12,24 +12,23 @@ void mousePressed(){
 	lightning();
 }
 void lightning(){
-	starty = 10;
-	endy = 10;
-	int bolts = 0;
-	while(endy<250){
-		while(endx<300){
-			int x = (int)(Math.random()*10);
-			int y = (int)(Math.random()*18-9);
-			startx = endx;
-			starty = endy;
-			endx = endx+x;
-			endy = endy+y;
-			randomColor();
-			line(startx, starty, endx, endy);
-		}
-		bolts = bolts+1;
-		startx = 10+20*bolts;
-		endx = 10+20*bolts;
+  background(200);
+	while(endx<300){
+		int x = (int)(Math.random()*10);
+		int y = (int)(Math.random()*18-9);
+		startx = endx;
+		starty = endy;
+		endx = endx+x;
+		endy = endy+y;
+		randomColor();
+    for(int i=0; i<200; i = i+15){
+		line(startx, starty+i, endx, endy+i);
+    }
 	}
+  startx = 0;
+  starty = 10;
+  endx = 0;
+  endy = 10;
 } 
 void randomColor(){
 	int r = (int)(Math.random()*256);
@@ -37,4 +36,3 @@ void randomColor(){
 	int b = (int)(Math.random()*256);
 	stroke(r, g, b);
 }
-
